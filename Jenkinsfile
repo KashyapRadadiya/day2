@@ -17,7 +17,7 @@ pipeline {
     stage('Test') {
       steps {
         // Create reports folder and run tests inside Node.js container
-        bat 'docker run --rm -v "%WORKSPACE%:/work" -w /work node:18 cmd /c "mkdir reports && npm test"'
+        bat 'docker run --rm -v "%WORKSPACE%:/work" -w /work node:18 sh -c "mkdir reports && npm test"'
       }
       post {
         always {
